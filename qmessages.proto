@@ -1,0 +1,26 @@
+message qmessage{
+  enum RequestType{ 
+    CREATE=0;
+    DESTROY=1;
+    EXIT=3;
+    INVALID=4;
+  };
+  required RequestType req =1;
+  optional uint64 thread_main =2;
+  optional uint64 thread_args =3;
+  optional uint64 tid=4;
+}
+
+message tlv{
+  enum type{
+    data=0;
+    stream=1;
+  }
+  required type   Type=1;
+  required uint32 Length=2;
+}
+
+message DataMessage
+{
+  required bytes Data=1;
+}
